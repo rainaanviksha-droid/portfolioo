@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anviksha Raina — Design Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Hanken+Grotesk:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --neon-pink: #ff2d9b;
+  --neon-cyan: #00f5ff;
+  --neon-purple: #b44bff;
+  --chrome-light: #e8e8f0;
+  --chrome-mid: #c0c0d0;
+  --chrome-dark: #8888a0;
+  --win-blue: #000080;
+  --win-bg: #008080;
+  --bg-dark: #0a0a12;
+  --bg-mid: #111128;
+  --halftone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='6'%3E%3Ccircle cx='3' cy='3' r='1' fill='rgba(255,255,255,0.06)'/%3E%3C/svg%3E");
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg-dark);
+  font-family: 'Hanken Grotesk', sans-serif;
+  color: white;
+  overflow-x: hidden;
+  cursor: crosshair;
+}
+
+/* ── HALFTONE OVERLAY ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: var(--halftone);
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.5;
+}
+
+/* ── CUSTOM SCROLLBAR ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0a12; }
+::-webkit-scrollbar-thumb { background: var(--neon-pink); border-radius: 3px; }
+
+/* ══════════════════════════════
+   HEADER / NAV  — Windows XP chrome
+══════════════════════════════ */
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: linear-gradient(180deg, #4a4a6a 0%, #2a2a4a 100%);
+  border-bottom: 2px solid #6060a0;
+  box-shadow: 0 2px 0 #9090c0, 0 4px 20px rgba(0,0,0,.6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 44px;
+}
+
+.logo {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-weight: 900;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: white;
+  text-shadow: 0 0 8px var(--neon-cyan);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo::before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: conic-gradient(#ff4444 0deg 90deg, #44cc44 90deg 180deg, #4444ff 180deg 270deg, #ffaa00 270deg 360deg);
+  border-radius: 2px;
+}
+
+.nav-menu ul {
+  display: flex;
+  list-style: none;
+  gap: 4px;
+}
+
+.nav-menu a {
+  display: block;
+  padding: 4px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: white;
+  text-decoration: none;
+  border-radius: 3px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%);
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.15s;
+}
+
+.nav-menu a:hover {
+  background: linear-gradient(180deg, var(--neon-pink) 0%, #aa0066 100%);
+  border-color: var(--neon-pink);
+  box-shadow: 0 0 12px var(--neon-pink);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.win-btn {
+  width: 18px; height: 18px;
+  border-radius: 3px;
+  border: 1px solid rgba(255,255,255,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px; font-weight: 900;
+  cursor: pointer;
+  background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0.2) 100%);
+  color: white;
+}
+
+/* ══════════════════════════════
+   HERO
+══════════════════════════════ */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse 80% 60% at 50% 50%, #1a0a2e 0%, #0a0a12 100%);
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: blobFloat 8s ease-in-out infinite;
+  opacity: 0.4;
+}
+
+.blob-1 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, #cc44ff, #ff2d9b, transparent);
+  top: -100px; left: -150px;
+  animation-delay: 0s;
+}
+
+.blob-2 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, #00f5ff, #0044ff, transparent);
+  bottom: -80px; right: -100px;
+  animation-delay: -3s;
+}
+
+.blob-3 {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, #ff9944, #ff2d9b, transparent);
+  top: 40%; right: 20%;
+  animation-delay: -6s;
+}
+
+@keyframes blobFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -30px) scale(1.05); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+}
+
+.hero-eyebrow {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  color: var(--neon-cyan);
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-cyan);
+  animation: fadeSlideDown 1s ease both;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-weight: 900;
+  font-size: clamp(5rem, 14vw, 13rem);
+  line-height: 0.88;
+  text-align: center;
+  letter-spacing: -0.03em;
+  position: relative;
+  z-index: 2;
+  animation: fadeSlideUp 1s ease 0.2s both;
+  background: linear-gradient(180deg,
+    #ffffff 0%,
+    #e0e0f0 20%,
+    var(--neon-cyan) 40%,
+    #ffffff 50%,
+    var(--neon-pink) 70%,
+    #8844cc 90%,
+    #ffffff 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 30px rgba(0,245,255,0.4));
+}
+
+.hero-sub {
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-top: 16px;
+  z-index: 2;
+  animation: fadeSlideUp 1s ease 0.4s both;
+}
+
+.neon-pill {
+  display: inline-block;
+  margin-top: 32px;
+  padding: 14px 40px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+  box-shadow: 0 0 20px var(--neon-pink), 0 0 40px rgba(255,45,155,0.4), inset 0 1px 0 rgba(255,255,255,0.3);
+  border: 1px solid rgba(255,255,255,0.2);
+  z-index: 2;
+  position: relative;
+  transition: all 0.3s;
+  animation: fadeSlideUp 1s ease 0.6s both;
+}
+
+.neon-pill:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 0 30px var(--neon-pink), 0 0 60px rgba(255,45,155,0.6), inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+
+@keyframes spinCD {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+}
+
+
+
+.scroll-hint {
+  position: absolute;
+  bottom: 30px;
+  right: 50%;
+  transform: translateX(50%);
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse { 0%, 100% { opacity: 0.35; } 50% { opacity: 0.8; } }
+
+/* ══════════════════════════════
+   ABOUT
+══════════════════════════════ */
+.about {
+  padding: 100px 8%;
+  background: #0d0d1a;
+  position: relative;
+  overflow: hidden;
+}
+
+.about::before {
+  content: 'ABOUT';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18vw;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.03);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.section-label {
+  font-size: 9px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--neon-pink);
+  text-shadow: 0 0 10px var(--neon-pink);
+  margin-bottom: 12px;
+}
+
+.about-heading {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-weight: 900;
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: white;
+  margin-bottom: 48px;
+}
+
+.about-heading em {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 20px var(--neon-cyan);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.about-text p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.65);
+  max-width: 480px;
+}
+
+.about-text .tags {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  padding: 5px 14px;
+  border: 1px solid rgba(255,45,155,0.4);
+  border-radius: 100px;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--neon-pink);
+  background: rgba(255,45,155,0.08);
+}
+
+.profile-window {
+  width: 100%;
+  max-width: 320px;
+  background: var(--chrome-mid);
+  border: 2px solid white;
+  box-shadow: 6px 6px 0 black, 0 0 40px rgba(0,245,255,0.15);
+}
+
+.win-bar {
+  background: linear-gradient(90deg, #000080, #3a3aaa);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 8px;
+  font-size: 10px;
+  color: white;
+  font-weight: 700;
+}
+
+.win-controls {
+  display: flex;
+  gap: 2px;
+}
+
+.win-controls button {
+  width: 16px; height: 14px;
+  border: 1px solid rgba(255,255,255,0.4);
+  background: linear-gradient(180deg, #d0d0d0, #909090);
+  font-size: 8px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: black;
+  font-weight: 900;
+}
+
+.win-body {
+  background: #d4d0c8;
+  padding: 8px;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.win-body img {
+  width: 100%;
+  display: block;
+}
+
+.profile-placeholder {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: linear-gradient(135deg, #1a1a2e, #2d1b4e, #1a2d4e);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.3);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  gap: 12px;
+  overflow: hidden;
+}
+
+.profile-placeholder svg {
+  opacity: 0.3;
+}
+
+/* Profile image — fills the placeholder container */
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ══════════════════════════════
+   PROJECTS
+══════════════════════════════ */
+.projects {
+  padding: 100px 8%;
+  background:
+    radial-gradient(ellipse 60% 40% at 10% 20%, rgba(255,45,155,0.12), transparent),
+    radial-gradient(ellipse 50% 50% at 90% 80%, rgba(0,245,255,0.1), transparent),
+    #f0ece4;
+  position: relative;
+}
+
+.projects::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Ccircle cx='4' cy='4' r='1.2' fill='rgba(0,0,0,0.07)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.projects-header {
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.projects-heading {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-weight: 900;
+  font-size: clamp(3rem, 9vw, 8rem);
+  line-height: 0.88;
+  color: #111;
+  letter-spacing: -0.04em;
+}
+
+.projects-heading span {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--neon-pink);
+}
+
+.semester-label {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-weight: 900;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #111;
+  margin-bottom: 24px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #111;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.semester-label::before {
+  content: '';
+  display: inline-block;
+  width: 8px; height: 8px;
+  background: var(--neon-pink);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--neon-pink);
+}
+
+.semester-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  position: relative;
+  z-index: 2;
+}
+
+.semester-col {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Windows XP style project frame */
+.project-window {
+  background: #c0c0c0;
+  border: 2px solid white;
+  border-right-color: #555;
+  border-bottom-color: #555;
+  box-shadow: 4px 4px 0 #333;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.project-window:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 7px 7px 0 #333;
+}
+
+.project-titlebar {
+  background: linear-gradient(90deg, #000080 0%, #1084d0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 6px;
+  gap: 6px;
+}
+
+.project-titlebar-name {
+  font-size: 10px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.project-titlebar-btns {
+  display: flex;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.project-titlebar-btns span {
+  width: 16px; height: 14px;
+  background: linear-gradient(180deg, #e0e0e0, #a0a0a0);
+  border: 1px solid #808080;
+  font-size: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-weight: 900;
+  font-family: Arial;
+}
+
+/* ── THE KEY FIX: image area is a fixed-ratio container ── */
+.project-img-area {
+  background: #d4d0c8;
+  padding: 6px;
+}
+
+.project-img-placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg,
+    rgba(255,45,155,0.2),
+    rgba(0,245,255,0.15),
+    rgba(100,44,255,0.2)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.4);
+  font-family: 'Courier New', monospace;
+  position: relative;
+  overflow: hidden;   /* clip anything outside the frame */
+}
+
+/* Images inside project placeholders: fill frame, never overflow */
+.project-img-placeholder img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* show full image, no cropping */
+  object-position: center;
+  background: #d4d0c8;   /* fill letterbox gaps with chrome grey */
+  display: block;
+}
+
+.project-status-bar {
+  background: #d4d0c8;
+  border-top: 2px solid #808080;
+  padding: 3px 6px;
+  font-size: 9px;
+  color: #333;
+  font-family: 'Courier New', monospace;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ══════════════════════════════
+   CONTACT
+══════════════════════════════ */
+.contact {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 60px 8%;
+  background: var(--bg-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-bg-text {
+  position: absolute;
+  bottom: -2vw;
+  left: 0;
+  right: 0;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-weight: 900;
+  font-size: 22vw;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.04);
+  pointer-events: none;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.contact-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.contact-tag {
+  font-size: 9px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+
+.contact-center {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  padding: 60px 0;
+}
+
+.contact-eyebrow {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  color: var(--neon-cyan);
+  text-shadow: 0 0 20px var(--neon-cyan);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.contact-heading {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-weight: 900;
+  font-size: clamp(5rem, 15vw, 14rem);
+  line-height: 0.85;
+  background: linear-gradient(90deg, #ffffff, var(--neon-pink), var(--neon-cyan), #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 30px rgba(255,45,155,0.3));
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-btn {
+  padding: 12px 28px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  transition: all 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.contact-btn:hover::before { opacity: 1; }
+.contact-btn span { position: relative; z-index: 1; }
+
+.contact-btn:hover {
+  border-color: var(--neon-pink);
+  box-shadow: 0 0 20px var(--neon-pink);
+}
+
+.neon-element {
+  position: absolute;
+  background: #1a1a2e;
+  border: 3px solid var(--neon-pink);
+  border-radius: 8px;
+  padding: 16px 24px;
+  text-align: center;
+  box-shadow: 0 0 20px var(--neon-pink), inset 0 0 20px rgba(255,45,155,0.1);
+}
+
+.neon-element-symbol {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-weight: 900;
+  font-size: 3rem;
+  color: var(--neon-pink);
+  text-shadow: 0 0 20px var(--neon-pink);
+  line-height: 1;
+}
+
+.neon-element-name {
+  font-size: 9px;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ══════════════════════════════
+   SCROLL REVEAL
+══════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeSlideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media (max-width: 768px) {
+  .about-content, .semester-grid { grid-template-columns: 1fr; }
+  .deco-window { display: none; }
+  .contact-heading { font-size: 18vw; }
+  .nav-menu ul { gap: 2px; }
+  .nav-menu a { padding: 4px 8px; font-size: 9px; }
+  .cd-deco { width: 80px; height: 80px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="main-header">
+  <div class="logo">Anviksha Raina</div>
+
+  <nav class="nav-menu">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="header-right">
+    <div class="win-btn">_</div>
+    <div class="win-btn">□</div>
+    <div class="win-btn">✕</div>
+  </div>
+</header>
+
+<!-- ── HERO ── -->
+<section id="home" class="hero">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <div class="deco-window">
+    <div class="deco-window-bar">
+      
+      <div class="deco-window-dots">
+    
+    </div>
+  
+  </div>
+
+  
+  <p class="hero-eyebrow">Design</p>
+  <h1 class="hero-title">PORTFOLIO</h1>
+  <p class="hero-sub">Anviksha Raina &nbsp;·&nbsp; DIT University, Dehradun</p>
+  <a href="#projects" class="neon-pill">View Work ↓</a>
+
+  <div class="scroll-hint">scroll to explore</div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about" class="about">
+  <div class="reveal">
+    <p class="section-label">// 001 — About</p>
+    <h2 class="about-heading">About<br><em>Me.</em></h2>
+  </div>
+
+  <div class="about-content reveal">
+    <div class="about-text">
+      <p>
+        Hi, I'm Anviksha Raina — a first-year design student at DIT University, Dehradun,
+        originally from Jammu & Kashmir. I'm passionate about design and innovation,
+        and I enjoy creating jewelry. I aim to combine my technical skills with my
+        creativity to grow and build a career in design.
+      </p>
+      <div class="tags">
+        <span class="tag">UX Design</span>
+        <span class="tag">Visual Design</span>
+        <span class="tag">Jewelry Making</span>
+        <span class="tag">DIT University</span>
+        <span class="tag">Jammu & Kashmir</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="profile-window">
+        <div class="win-bar">
+          <span>ANVIKSHA RAINA</span>
+          <div class="win-controls">
+            <button>_</button>
+            <button>□</button>
+            <button>✕</button>
+          </div>
+        </div>
+        <div class="win-body">
+          <div class="profile-placeholder">
+            <img src="myphoto..jpeg" alt="Profile" class="profile-img">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJECTS ── -->
+<section id="projects" class="projects">
+  <div class="projects-header reveal">
+    <p class="section-label" style="color:#111; text-shadow:none">// 002 — Work</p>
+    <h2 class="projects-heading">Semester<br><span>Projects.</span></h2>
+  </div>
+
+  <div class="semester-grid">
+
+    <!-- SEM 1 -->
+    <div class="semester-col reveal">
+      <div class="semester-label">Semester 01</div>
+
+      <!-- Project 1 -->
+      <div class="project-window">
+        <div class="project-titlebar">
+          <span class="project-titlebar-name">📐 Elements of Design — Matrix</span>
+          <div class="project-titlebar-btns">
+            <span>_</span><span>□</span><span>✕</span>
+          </div>
+        </div>
+        <div class="project-img-area">
+          <div class="project-img-placeholder">
+            <img src="designmatrix..jpeg" alt="Elements of Design Matrix">
+          </div>
+        </div>
+        <div class="project-status-bar">
+          <span>Elements of Design</span>
+          <span>Sem 1</span>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-window">
+        <div class="project-titlebar">
+          <span class="project-titlebar-name">🔍 Product Analysis</span>
+          <div class="project-titlebar-btns">
+            <span>_</span><span>□</span><span>✕</span>
+          </div>
+        </div>
+        <div class="project-img-area">
+          <div class="project-img-placeholder">
+            <img src="PRODUCT ANALYSIS..jpeg" alt="Product Analysis">
+          </div>
+        </div>
+        <div class="project-status-bar">
+          <span>Elements of Design</span>
+          <span>Sem 1</span>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-window">
+        <div class="project-titlebar">
+          <span class="project-titlebar-name">📖 Storytelling & Visualizing</span>
+          <div class="project-titlebar-btns">
+            <span>_</span><span>□</span><span>✕</span>
+          </div>
+        </div>
+        <div class="project-img-area">
+          <div class="project-img-placeholder">
+            <img src="C:\Users\ANVIKSHA RAINA\OneDrive\Pictures\New folder\anviksha_1000028019\Storytelling visualising.jpeg" alt="Storytelling & Visualizing">
+          </div>
+        </div>
+        <div class="project-status-bar">
+          <span>Storytelling &amp; Visualizing</span>
+          <span>Sem 1</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEM 2 -->
+    <div class="semester-col reveal">
+      <div class="semester-label">Semester 02</div>
+
+      <!-- Project 4 -->
+      <div class="project-window">
+        <div class="project-titlebar">
+          <span class="project-titlebar-name">🎨 Digital Design Tools</span>
+          <div class="project-titlebar-btns">
+            <span>_</span><span>□</span><span>✕</span>
+          </div>
+        </div>
+        <div class="project-img-area">
+          <div class="project-img-placeholder">
+            <img src="C:\Users\ANVIKSHA RAINA\Downloads\WhatsApp Image 2026-04-27 at 1.32.38 PM.jpeg" alt="Digital Design Tools">
+          </div>
+        </div>
+        <div class="project-status-bar">
+          <span>Digital Design Tools</span>
+          <span>Sem 2</span>
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project-window">
+        <div class="project-titlebar">
+          <span class="project-titlebar-name">⬡ PRINCIPLE OF DESIGN PSYCHOLOGY</span>
+          <div class="project-titlebar-btns">
+            <span>_</span><span>□</span><span>✕</span>
+          </div>
+        </div>
+        <div class="project-img-area">
+          <div class="project-img-placeholder">
+            <img src="C:\Users\ANVIKSHA RAINA\OneDrive\Pictures\New folder\anviksha_1000028019\design psychology.jpeg" alt="Principle of Design Psychology">
+          </div>
+        </div>
+        <div class="project-status-bar">
+          <span>Basics of UX</span>
+          <span>Sem 2</span>
+        </div>
+      </div>
+
+      <!-- Project 6 -->
+      <div class="project-window">
+        <div class="project-titlebar">
+          <span class="project-titlebar-name">◎ Form Exploration</span>
+          <div class="project-titlebar-btns">
+            <span>_</span><span>□</span><span>✕</span>
+          </div>
+        </div>
+        <div class="project-img-area">
+          <div class="project-img-placeholder">
+            <img src="C:\Users\ANVIKSHA RAINA\OneDrive\Pictures\New folder\anviksha_1000028019\form Exploration.jpeg" alt="Form Exploration">
+          </div>
+        </div>
+        <div class="project-status-bar">
+          <span>Form Exploration</span>
+          <span>Sem 2</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact" class="contact">
+  <div class="contact-top reveal">
+    <span class="contact-tag">// 003 — Contact</span>
+    <span class="contact-tag">UX Design · Visual Design</span>
+  </div>
+
+  
+
+  <div class="contact-center reveal">
+    <em class="contact-eyebrow">Let's Work</em>
+    <h2 class="contact-heading">TOGETHER</h2>
+  </div>
+
+  <div class="contact-links reveal">
+    <a href="tel:+917780931512" class="contact-btn"><span>📞 +7780931512</span></a>
+    <a href="mailto:rainaanviksha@gmail.com" class="contact-btn"><span>✉ rainaanviksha@gmail.com</span></a>
+    <a href="https://instagram.com/Bikkssaa" class="contact-btn" target="_blank"><span>◎ IG: @Bikkssaa</span></a>
+  </div>
+
+  <div class="contact-bg-text">TOGETHER</div>
+</section>
+
+<script>
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => io.observe(el));
+
+// Project window hover
+document.querySelectorAll('.project-window').forEach(w => {
+  w.addEventListener('mouseenter', () => {
+    w.style.transition = 'transform 0.1s, box-shadow 0.1s';
+  });
+});
+
+// Cursor trail
+const trail = document.createElement('div');
+trail.style.cssText = `
+  position:fixed; width:8px; height:8px; border-radius:50%;
+  background:rgba(255,45,155,0.6); pointer-events:none; z-index:99998;
+  transform:translate(-50%,-50%); transition:left 0.08s,top 0.08s;
+  box-shadow:0 0 10px #ff2d9b;
+`;
+document.body.appendChild(trail);
+document.addEventListener('mousemove', e => {
+  trail.style.left = e.clientX + 'px';
+  trail.style.top = e.clientY + 'px';
+});
+</script>
+</body>
+</html>
